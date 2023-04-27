@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include omnicommerce_cms *.css
+recursive-include omnicommerce_cms *.csv
+recursive-include omnicommerce_cms *.html
+recursive-include omnicommerce_cms *.ico
+recursive-include omnicommerce_cms *.js
+recursive-include omnicommerce_cms *.json
+recursive-include omnicommerce_cms *.md
+recursive-include omnicommerce_cms *.png
+recursive-include omnicommerce_cms *.py
+recursive-include omnicommerce_cms *.svg
+recursive-include omnicommerce_cms *.txt
+recursive-exclude omnicommerce_cms *.pyc
