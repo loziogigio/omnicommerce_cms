@@ -1,0 +1,114 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-04-28 07:24:02.045851",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "order",
+  "label",
+  "url",
+  "smalll_image",
+  "lft",
+  "rgt",
+  "is_group",
+  "old_parent",
+  "parent_b2c_menu",
+  "category_image",
+  "category_description"
+ ],
+ "fields": [
+  {
+   "fieldname": "order",
+   "fieldtype": "Int",
+   "label": "order"
+  },
+  {
+   "fieldname": "label",
+   "fieldtype": "Data",
+   "label": "label"
+  },
+  {
+   "fieldname": "url",
+   "fieldtype": "Data",
+   "label": "url"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group"
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "label": "Old Parent",
+   "options": "B2C Menu"
+  },
+  {
+   "fieldname": "parent_b2c_menu",
+   "fieldtype": "Link",
+   "label": "Parent B2C Menu",
+   "options": "B2C Menu"
+  },
+  {
+   "fieldname": "smalll_image",
+   "fieldtype": "Image",
+   "label": "small image"
+  },
+  {
+   "fieldname": "category_image",
+   "fieldtype": "Image",
+   "label": "Category Image"
+  },
+  {
+   "fieldname": "category_description",
+   "fieldtype": "HTML Editor",
+   "label": "Category Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_tree": 1,
+ "links": [],
+ "modified": "2023-04-28 08:03:00.237675",
+ "modified_by": "Administrator",
+ "module": "Omnicommerce Cms",
+ "name": "B2C Menu",
+ "nsm_parent_field": "parent_b2c_menu",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
