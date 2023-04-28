@@ -1,39 +1,59 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2023-04-28 07:24:02.045851",
+ "autoname": "field:label",
+ "creation": "2023-04-28 11:35:32.604537",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "order",
   "label",
+  "order",
+  "title",
   "url",
-  "smalll_image",
+  "category_menu_image",
+  "category_banner_image",
+  "description",
   "lft",
   "rgt",
   "is_group",
   "old_parent",
-  "parent_b2c_menu",
-  "category_image",
-  "category_description"
+  "parent_b2c_menu"
  ],
  "fields": [
   {
    "fieldname": "order",
    "fieldtype": "Int",
-   "label": "order"
+   "label": "Order"
   },
   {
    "fieldname": "label",
    "fieldtype": "Data",
-   "label": "label"
+   "in_list_view": 1,
+   "label": "Label",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
   },
   {
    "fieldname": "url",
    "fieldtype": "Data",
-   "label": "url"
+   "label": "Url"
+  },
+  {
+   "fieldname": "category_menu_image",
+   "fieldtype": "Attach Image",
+   "label": "Category menu image"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "HTML Editor",
+   "label": "Description"
   },
   {
    "fieldname": "lft",
@@ -70,28 +90,19 @@
    "options": "B2C Menu"
   },
   {
-   "fieldname": "smalll_image",
-   "fieldtype": "Image",
-   "label": "small image"
-  },
-  {
-   "fieldname": "category_image",
-   "fieldtype": "Image",
-   "label": "Category Image"
-  },
-  {
-   "fieldname": "category_description",
-   "fieldtype": "HTML Editor",
-   "label": "Category Description"
+   "fieldname": "category_banner_image",
+   "fieldtype": "Attach Image",
+   "label": "Category banner image"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2023-04-28 08:03:00.237675",
+ "modified": "2023-04-28 11:49:57.404337",
  "modified_by": "Administrator",
  "module": "Omnicommerce Cms",
  "name": "B2C Menu",
+ "naming_rule": "By fieldname",
  "nsm_parent_field": "parent_b2c_menu",
  "owner": "Administrator",
  "permissions": [
@@ -106,6 +117,15 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Guest",
+   "share": 1
   }
  ],
  "sort_field": "modified",

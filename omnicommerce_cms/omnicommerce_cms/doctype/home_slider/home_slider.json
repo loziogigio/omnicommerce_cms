@@ -1,0 +1,109 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-04-28 11:57:53.552075",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "order",
+  "position",
+  "image",
+  "text",
+  "second_text",
+  "button",
+  "url",
+  "background_color_banner",
+  "text_color",
+  "status",
+  "background_transparency"
+ ],
+ "fields": [
+  {
+   "fieldname": "order",
+   "fieldtype": "Data",
+   "label": "Order"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Image",
+   "reqd": 1
+  },
+  {
+   "fieldname": "text",
+   "fieldtype": "Data",
+   "label": "Frist Text"
+  },
+  {
+   "fieldname": "button",
+   "fieldtype": "Data",
+   "label": "Button"
+  },
+  {
+   "fieldname": "url",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Url",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nPublished"
+  },
+  {
+   "fieldname": "background_color_banner",
+   "fieldtype": "Color",
+   "label": "Background color banner"
+  },
+  {
+   "fieldname": "background_transparency",
+   "fieldtype": "Percent",
+   "label": "Background transparency "
+  },
+  {
+   "fieldname": "text_color",
+   "fieldtype": "Color",
+   "label": "Text color"
+  },
+  {
+   "fieldname": "position",
+   "fieldtype": "Select",
+   "label": "Position",
+   "options": "Left\nCenter\nRight"
+  },
+  {
+   "fieldname": "second_text",
+   "fieldtype": "Data",
+   "label": "Second Text"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-04-28 13:24:14.974719",
+ "modified_by": "Administrator",
+ "module": "Omnicommerce Cms",
+ "name": "Home Slider",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
