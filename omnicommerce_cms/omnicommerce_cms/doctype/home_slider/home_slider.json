@@ -62,8 +62,8 @@
   },
   {
    "fieldname": "background_transparency",
-   "fieldtype": "Percent",
-   "label": "Background transparency "
+   "fieldtype": "Float",
+   "label": "Background transparency (0 -1)"
   },
   {
    "fieldname": "text_color",
@@ -84,7 +84,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-28 13:24:14.974719",
+ "modified": "2023-05-02 14:59:52.235980",
  "modified_by": "Administrator",
  "module": "Omnicommerce Cms",
  "name": "Home Slider",
@@ -101,6 +101,15 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Guest",
+   "share": 1
   }
  ],
  "sort_field": "modified",
