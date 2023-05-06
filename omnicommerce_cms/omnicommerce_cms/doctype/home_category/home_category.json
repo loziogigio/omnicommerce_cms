@@ -2,7 +2,7 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "field:label",
- "creation": "2023-04-28 11:52:49.113392",
+ "creation": "2023-05-06 15:40:40.131373",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -10,7 +10,7 @@
  "field_order": [
   "label",
   "url",
-  "image_banner",
+  "image",
   "order",
   "status"
  ],
@@ -27,9 +27,9 @@
    "label": "url"
   },
   {
-   "fieldname": "image_banner",
+   "fieldname": "image",
    "fieldtype": "Attach Image",
-   "label": "image banner"
+   "label": "image"
   },
   {
    "fieldname": "order",
@@ -45,10 +45,10 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-06 15:22:00.657465",
+ "modified": "2023-05-06 15:40:40.131373",
  "modified_by": "Administrator",
  "module": "Omnicommerce Cms",
- "name": "Promo Banner",
+ "name": "Home Category",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
