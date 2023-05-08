@@ -5,12 +5,22 @@ import frappe
 
 import frappe
 
-web_site_domain = frappe.utils.get_url()
+
+
+def get_website_domain():
+    host_header = frappe.local.request.headers.get('Host')
+    if host_header:
+        website_domain = f"https://{host_header}"
+    else:
+        website_domain = frappe.utils.get_url()
+
+    return website_domain
 
 @frappe.whitelist(allow_guest=True, methods=['GET'])
 def get_home(args=None):
     # Define the order_by variable if needed, for example:
-    order_by = 'creation desc'
+    order_by = '`order` asc'
+
     
     # Use frappe.get_list to fetch records from the database
     sliders_top = frappe.get_list('Home Slider', order_by=order_by , fields=['*'])
@@ -38,6 +48,7 @@ def get_home(args=None):
 
 def map_slider_to_doctype(slider):
     image_name = slider['image']
+    web_site_domain = get_website_domain()
 
     
     doctype = {
@@ -57,6 +68,7 @@ def map_slider_to_doctype(slider):
 
 def map_promo_banner_to_doctype(promo_banner):
     image_name = promo_banner['image_banner']
+    web_site_domain = get_website_domain()
 
     
     doctype = {
@@ -69,6 +81,7 @@ def map_promo_banner_to_doctype(promo_banner):
 
 def map_home_category_to_doctype(home_category):
     image_name = home_category['image']
+    web_site_domain = get_website_domain()
 
     
     doctype = {
@@ -81,6 +94,7 @@ def map_home_category_to_doctype(home_category):
 
 def map_home_brand_to_doctype(home_brand):
     image_name = home_brand['image']
+    web_site_domain = get_website_domain()
 
     
     doctype = {
