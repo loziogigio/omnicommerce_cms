@@ -117,12 +117,12 @@ def get_b2c_menu(args=None):
 
     # Use frappe.get_list to fetch records from the database
     b2c_menu_items = frappe.get_list('B2C Menu', order_by=order_by , fields=['*'])
-    data_menu = [map_menu(item) for item in b2c_menu_items]
+    data_menu = [map_menu(item , 'b2c') for item in b2c_menu_items]
     
     # Create a dictionary containing the data_menu data    
     return data_menu
 
-def map_menu(item):
+def map_menu(item , menu_type):
     web_site_domain = get_website_domain()
     doctype = {
         'name': item['name'],
@@ -137,7 +137,7 @@ def map_menu(item):
         'rgt': item['rgt'],
         'is_group': item['is_group'],
         'old_parent': item['old_parent'],
-        'parent_b2c_menu': item['parent_b2c_menu'],
+        'parent_menu': item[f'parent_{menu_type}_menu'],
         'category_menu_image': f'{web_site_domain}{item["category_menu_image"]}' if item.get("category_menu_image") else None,
         'category_banner_image': f'{web_site_domain}{item["category_banner_image"]}' if item.get("category_banner_image") else None
     }
@@ -152,7 +152,7 @@ def get_b2b_menu(args=None):
 
     # Use frappe.get_list to fetch records from the database
     b2b_menu_items = frappe.get_list('B2B Menu', order_by=order_by , fields=['*'])
-    data_menu = [map_menu(item) for item in b2b_menu_items]
+    data_menu = [map_menu(item , 'b2b') for item in b2b_menu_items]
     
     # Create a dictionary containing the data_menu data    
     return data_menu
