@@ -110,7 +110,51 @@ def map_home_brand_to_doctype(home_brand):
     }
     return doctype
 
+@frappe.whitelist(allow_guest=True, methods=['GET'])
+def get_b2c_menu(args=None):
+    # Define the order_by variable if needed, for example:
+    order_by = '`order` asc'
+
+    # Use frappe.get_list to fetch records from the database
+    b2c_menu_items = frappe.get_list('B2C Menu', order_by=order_by , fields=['*'])
+    data_menu = [map_menu(item) for item in b2c_menu_items]
+    
+    # Create a dictionary containing the data_menu data    
+    return data_menu
+
+def map_menu(item):
+    web_site_domain = get_website_domain()
+    doctype = {
+        'name': item['name'],
+        'creation': item['creation'],
+        'docstatus': item['docstatus'],
+        'label': item['label'],
+        'order': item['order'],
+        'title': item['title'],
+        'url': item['url'] + '&category_detail=' + item['name'] if item['url'] else item['url'],
+        'description': item['description'],
+        'lft': item['lft'],
+        'rgt': item['rgt'],
+        'is_group': item['is_group'],
+        'old_parent': item['old_parent'],
+        'parent_b2c_menu': item['parent_b2c_menu'],
+        'category_menu_image': f'{web_site_domain}{item["category_menu_image"]}' if item.get("category_menu_image") else None,
+        'category_banner_image': f'{web_site_domain}{item["category_banner_image"]}' if item.get("category_banner_image") else None
+    }
+    return doctype
 
 
+
+@frappe.whitelist(allow_guest=True, methods=['GET'])
+def get_b2b_menu(args=None):
+    # Define the order_by variable if needed, for example:
+    order_by = '`order` asc'
+
+    # Use frappe.get_list to fetch records from the database
+    b2b_menu_items = frappe.get_list('B2B Menu', order_by=order_by , fields=['*'])
+    data_menu = [map_menu(item) for item in b2b_menu_items]
+    
+    # Create a dictionary containing the data_menu data    
+    return data_menu
 
 
