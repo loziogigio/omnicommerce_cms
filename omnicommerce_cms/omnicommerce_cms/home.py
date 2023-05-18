@@ -124,6 +124,8 @@ def get_b2c_menu(args=None):
 
 def map_menu(item , menu_type):
     web_site_domain = get_website_domain()
+    item['url'] = item['url'] + '&category_detail=' + item['name'] if item['url'] else item['url']
+    item['url'] += '&tab_name='  + item['name'] if item['url'] else ''
     doctype = {
         'name': item['name'],
         'creation': item['creation'],
@@ -131,7 +133,7 @@ def map_menu(item , menu_type):
         'label': item['label'],
         'order': item['order'],
         'title': item['title'],
-        'url': item['url'] + '&category_detail=' + item['name'] if item['url'] else item['url'],
+        'url': item['url'],
         'description': item['description'],
         'lft': item['lft'],
         'rgt': item['rgt'],
@@ -158,3 +160,24 @@ def get_b2b_menu(args=None):
     return data_menu
 
 
+@frappe.whitelist(allow_guest=True, methods=['GET'])
+def get_promo_slider(args=None):
+    # Define the order_by variable if needed, for example:
+    order_by = '`order` asc'
+
+    # Use frappe.get_list to fetch records from the database
+    promo_slider_items= frappe.get_list('Promo Slider', order_by=order_by , fields=['*'])
+    data = [map_promo_slider(item ) for item in promo_slider_items]
+    
+    # Create a dictionary containing the data_menu data    
+    return data
+
+
+def map_promo_slider(item ):
+    item['url'] = item['url'] +  '&tab_name='  + item['text'] if item['text'] else  item['url'] 
+    doctype = {
+        'icon': item['icon'],
+        'url': item['url'],
+        'text': item['text']
+    }
+    return doctype
