@@ -14,6 +14,7 @@
   "url",
   "category_menu_image",
   "category_banner_image",
+  "category_banner_image_mobile",
   "description",
   "lft",
   "rgt",
@@ -77,6 +78,7 @@
    "read_only": 1
   },
   {
+   "default": "0",
    "fieldname": "is_group",
    "fieldtype": "Check",
    "label": "Is Group"
@@ -92,12 +94,17 @@
    "fieldtype": "Link",
    "label": "Parent B2B Menu",
    "options": "B2B Menu"
+  },
+  {
+   "fieldname": "category_banner_image_mobile",
+   "fieldtype": "Attach Image",
+   "label": "Category banner image mobile"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2023-05-10 12:36:15.442649",
+ "modified": "2023-05-19 15:34:25.632908",
  "modified_by": "Administrator",
  "module": "Omnicommerce Cms",
  "name": "B2B Menu",

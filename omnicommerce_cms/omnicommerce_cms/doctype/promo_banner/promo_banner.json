@@ -24,12 +24,15 @@
   {
    "fieldname": "url",
    "fieldtype": "Data",
-   "label": "url"
+   "in_list_view": 1,
+   "label": "url",
+   "reqd": 1
   },
   {
    "fieldname": "image_banner",
    "fieldtype": "Attach Image",
-   "label": "image banner"
+   "label": "image banner",
+   "reqd": 1
   },
   {
    "fieldname": "order",
@@ -39,13 +42,15 @@
   {
    "fieldname": "status",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "status",
-   "options": "Draft\nPublished"
+   "options": "Draft\nPublished",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-06 15:22:00.657465",
+ "modified": "2023-05-19 15:40:32.465313",
  "modified_by": "Administrator",
  "module": "Omnicommerce Cms",
  "name": "Promo Banner",

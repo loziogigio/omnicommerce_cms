@@ -14,6 +14,7 @@
   "url",
   "category_menu_image",
   "category_banner_image",
+  "category_banner_image_mobile",
   "description",
   "lft",
   "rgt",
@@ -38,12 +39,14 @@
   {
    "fieldname": "title",
    "fieldtype": "Data",
-   "label": "Title"
+   "label": "Title",
+   "reqd": 1
   },
   {
    "fieldname": "url",
    "fieldtype": "Data",
-   "label": "Url"
+   "label": "Url",
+   "reqd": 1
   },
   {
    "fieldname": "category_menu_image",
@@ -93,12 +96,17 @@
    "fieldname": "category_banner_image",
    "fieldtype": "Attach Image",
    "label": "Category banner image"
+  },
+  {
+   "fieldname": "category_banner_image_mobile",
+   "fieldtype": "Attach Image",
+   "label": "Category banner image mobile"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2023-04-28 11:49:57.404337",
+ "modified": "2023-05-19 15:21:28.061925",
  "modified_by": "Administrator",
  "module": "Omnicommerce Cms",
  "name": "B2C Menu",

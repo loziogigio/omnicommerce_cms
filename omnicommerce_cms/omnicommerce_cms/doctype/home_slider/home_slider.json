@@ -10,6 +10,7 @@
   "order",
   "position",
   "image",
+  "image_mobile",
   "text",
   "second_text",
   "button",
@@ -80,11 +81,17 @@
    "fieldname": "second_text",
    "fieldtype": "Data",
    "label": "Second Text"
+  },
+  {
+   "fieldname": "image_mobile",
+   "fieldtype": "Attach Image",
+   "label": "Image Mobile",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-02 14:59:52.235980",
+ "modified": "2023-05-19 15:23:27.667192",
  "modified_by": "Administrator",
  "module": "Omnicommerce Cms",
  "name": "Home Slider",

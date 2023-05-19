@@ -52,22 +52,23 @@ def get_home(args=None):
 
 
 def map_slider_to_doctype(slider):
-    image_name = slider['image']
+    image_name = slider.get('image')
+    image_name_mobile = slider.get('image_mobile')
     web_site_domain = get_website_domain()
 
-    
     doctype = {
-        'order': slider['order'],
-        'position': slider['position'],
-        'title_1': slider['text'],
-        'title_2': slider['second_text'],
-        'button': slider['button'],
-        'url':slider['url'],
-        'background_color_banner': slider['background_color_banner'],
-        'text_color': slider['background_color_banner'],
+        'order': slider.get('order'),
+        'position': slider.get('position'),
+        'title_1': slider.get('text'),
+        'title_2': slider.get('second_text'),
+        'button': slider.get('button'),
+        'url': slider.get('url'),
+        'background_color_banner': slider.get('background_color_banner'),
+        'text_color': slider.get('background_color_banner'),
         'status': 'Published',
-        'background_transparency': slider['background_transparency'],
-        'slide_image': [{'url': f'{web_site_domain}{image_name}'}]
+        'background_transparency': slider.get('background_transparency'),
+        'slide_image': [{'url': f'{web_site_domain}{image_name}'}] if image_name else None,
+        'slide_image_mobile': [{'url': f'{web_site_domain}{image_name_mobile}'}] if image_name_mobile else None
     }
     return doctype
 
@@ -124,8 +125,10 @@ def get_b2c_menu(args=None):
 
 def map_menu(item , menu_type):
     web_site_domain = get_website_domain()
-    item['url'] = item['url'] + '&category_detail=' + item['name'] if item['url'] else item['url']
-    item['url'] += '&tab_name='  + item['name'] if item['url'] else ''
+    item_url = item.get('url', '')
+    item_name = item.get('name', '')
+    item['url'] = item_url + '&category_detail=' + item_name if item_url else item_url
+    item['url'] += '&tab_name='  + item_name if item['url'] else ''
     doctype = {
         'name': item['name'],
         'creation': item['creation'],
@@ -141,7 +144,9 @@ def map_menu(item , menu_type):
         'old_parent': item['old_parent'],
         'parent_menu': item[f'parent_{menu_type}_menu'],
         'category_menu_image': f'{web_site_domain}{item["category_menu_image"]}' if item.get("category_menu_image") else None,
-        'category_banner_image': f'{web_site_domain}{item["category_banner_image"]}' if item.get("category_banner_image") else None
+        'category_banner_image': f'{web_site_domain}{item["category_banner_image"]}' if item.get("category_banner_image") else None,
+        'category_banner_image_mobile': f'{web_site_domain}{item["category_banner_image_mobile"]}' if item.get("category_banner_image_mobile") else None
+
     }
     return doctype
 
