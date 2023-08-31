@@ -4,6 +4,11 @@ import os
 
 
 def get_website_domain():
+
+    # check if omnicommere cdn is installed
+    if 'omnicommere_cdn' not in frappe.get_installed_apps():
+        return ""
+    
     site_name = frappe.local.site
     sites_folder = frappe.get_app_path('frappe', '..', '..', 'sites')
 
