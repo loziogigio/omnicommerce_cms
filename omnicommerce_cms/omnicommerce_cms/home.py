@@ -69,7 +69,7 @@ def map_slider_to_doctype(slider):
         'button': slider.get('button'),
         'url': slider.get('url'),
         'background_color_banner': slider.get('background_color_banner'),
-        'text_color': slider.get('background_color_banner'),
+        'text_color': slider.get('text_color'),
         'status': 'Published',
         'background_transparency': slider.get('background_transparency'),
         'slide_image': [{'url': f'{web_site_domain}{image_name}'}] if image_name else None,
