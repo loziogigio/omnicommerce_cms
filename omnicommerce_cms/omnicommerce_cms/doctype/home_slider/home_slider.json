@@ -43,6 +43,7 @@
    "label": "Button"
   },
   {
+   "default": "/",
    "fieldname": "url",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -62,6 +63,7 @@
    "label": "Background color banner"
   },
   {
+   "default": "1",
    "fieldname": "background_transparency",
    "fieldtype": "Float",
    "label": "Background transparency (0 -1)"
@@ -91,7 +93,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-19 15:23:27.667192",
+ "modified": "2023-09-14 16:56:09.941058",
  "modified_by": "Administrator",
  "module": "Omnicommerce Cms",
  "name": "Home Slider",
