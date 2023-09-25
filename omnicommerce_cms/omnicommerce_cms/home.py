@@ -44,13 +44,17 @@ def get_home(args=None):
 
     home_brands = frappe.get_list('Home Brand', order_by=order_by , fields=['*'])
     data_home_brand = [map_home_brand_to_doctype(home_brand) for home_brand in home_brands]
+
+    popular_departments = frappe.get_list('Popular Departments', order_by=order_by , fields=['*'])
+    data_home_popular_department = [map_home_popular_department_to_doctype(popular_department) for popular_department in popular_departments]
     
     # Create a dictionary containing the slider_top data
     data = {
         'slider_top': data_slider,
         'promo_banner':data_promo,
         'home_category':data_home_category,
-        'home_brand':data_home_brand
+        'home_brand':data_home_brand,
+        'popular_department':data_home_popular_department
         }
     
     return data
@@ -115,6 +119,20 @@ def map_home_brand_to_doctype(home_brand):
         'image':  f'{web_site_domain}{image_name}'
     }
     return doctype
+
+def map_home_popular_department_to_doctype(popular_department):
+    image_name = popular_department['image']
+    web_site_domain = get_website_domain()
+
+    
+    doctype = {
+        'order': popular_department['order'],
+        'label': popular_department['label'],
+        'url': popular_department['url'],
+        'image':  f'{web_site_domain}{image_name}'
+    }
+    return doctype
+
 
 @frappe.whitelist(allow_guest=True, methods=['GET'])
 def get_b2c_menu(args=None):
