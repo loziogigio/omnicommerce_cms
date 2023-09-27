@@ -12,6 +12,9 @@
   "url",
   "image_banner",
   "order",
+  "background_color_banner",
+  "text_color",
+  "background_transparency",
   "status"
  ],
  "fields": [
@@ -46,11 +49,27 @@
    "label": "status",
    "options": "Draft\nPublished",
    "reqd": 1
+  },
+  {
+   "fieldname": "background_color_banner",
+   "fieldtype": "Color",
+   "label": "Background color banner"
+  },
+  {
+   "fieldname": "text_color",
+   "fieldtype": "Color",
+   "label": "Text color"
+  },
+  {
+   "default": "1",
+   "fieldname": "background_transparency",
+   "fieldtype": "Percent",
+   "label": "Background transparency (0 -1)"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-19 15:40:32.465313",
+ "modified": "2023-09-27 16:32:10.987353",
  "modified_by": "Administrator",
  "module": "Omnicommerce Cms",
  "name": "Promo Banner",

@@ -90,7 +90,10 @@ def map_promo_banner_to_doctype(promo_banner):
         'order': promo_banner['order'],
         'label': promo_banner['label'],
         'url': promo_banner['url'],
-        'slide_image':  f'{web_site_domain}{image_name}'
+        'slide_image':  f'{web_site_domain}{image_name}',
+        'background_color_banner': promo_banner.get('background_color_banner'),
+        'text_color': promo_banner.get('text_color'),
+        'background_transparency': promo_banner.get('background_transparency'),
     }
     return doctype
 
