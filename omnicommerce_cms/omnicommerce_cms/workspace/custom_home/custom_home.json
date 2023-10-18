@@ -2,6 +2,7 @@
  "charts": [],
  "content": "[{\"id\":\"UDLYHfvpUI\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h1\\\">Customize your home page</span>\",\"col\":12}},{\"id\":\"i6ygxTb1V4\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"B2B Menu\",\"col\":6}},{\"id\":\"yyP6pmWtlr\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"B2C Menu\",\"col\":6}},{\"id\":\"ToSFta7Ty7\",\"type\":\"paragraph\",\"data\":{\"text\":\"<span class=\\\"h2\\\">Slider sections</span>\",\"col\":12}},{\"id\":\"BCfrg9nEyK\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Promo Slider\",\"col\":4}},{\"id\":\"xgbvkisEZb\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Home Slider\",\"col\":4}},{\"id\":\"wF_JWJ25UC\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Promo Banner\",\"col\":4}},{\"id\":\"Hb7ODd365V\",\"type\":\"paragraph\",\"data\":{\"text\":\"<span class=\\\"h2\\\">Rest of the page</span>\",\"col\":12}},{\"id\":\"oe61a1fLba\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Home Category\",\"col\":6}},{\"id\":\"FRZyd61ocL\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Home Brand\",\"col\":6}},{\"id\":\"OilSagv2Oo\",\"type\":\"paragraph\",\"data\":{\"text\":\"Flyers Section\",\"col\":12}},{\"id\":\"Q1X-ox1UiB\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Flyers\",\"col\":12}}]",
  "creation": "2023-05-19 16:02:06.141033",
+ "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
@@ -11,45 +12,54 @@
  "is_hidden": 0,
  "label": "Custom Home",
  "links": [],
- "modified": "2023-06-13 10:13:24.902601",
+ "modified": "2023-10-18 16:52:05.807581",
  "modified_by": "Administrator",
  "module": "Omnicommerce Cms",
  "name": "Custom Home",
+ "number_cards": [],
  "owner": "Administrator",
  "parent_page": "",
  "public": 1,
  "quick_lists": [
   {
-   "document_type": "Flyer",
-   "label": "Flyers"
-  },
-  {
-   "document_type": "B2B Menu",
-   "label": "B2B Menu"
+   "document_type": "Home Slider",
+   "label": "Home Slider",
+   "quick_list_filter": "[]"
   },
   {
    "document_type": "B2C Menu",
-   "label": "B2C Menu"
+   "label": "B2C Menu",
+   "quick_list_filter": "[]"
   },
   {
-   "document_type": "Promo Slider",
-   "label": "Promo Slider"
-  },
-  {
-   "document_type": "Home Slider",
-   "label": "Home Slider"
+   "document_type": "B2B Menu",
+   "label": "B2B Menu",
+   "quick_list_filter": "[]"
   },
   {
    "document_type": "Promo Banner",
-   "label": "Promo Banner"
+   "label": "Promo Banner",
+   "quick_list_filter": "[]"
+  },
+  {
+   "document_type": "Promo Slider",
+   "label": "Promo Slider",
+   "quick_list_filter": "[]"
   },
   {
    "document_type": "Home Category",
-   "label": "Home Category"
+   "label": "Home Category",
+   "quick_list_filter": "[]"
   },
   {
    "document_type": "Home Brand",
-   "label": "Home Brand"
+   "label": "Home Brand",
+   "quick_list_filter": "[]"
+  },
+  {
+   "document_type": "Flyer",
+   "label": "Flyers",
+   "quick_list_filter": "[]"
   }
  ],
  "roles": [
