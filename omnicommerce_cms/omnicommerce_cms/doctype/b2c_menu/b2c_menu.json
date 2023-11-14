@@ -44,7 +44,7 @@
   },
   {
    "fieldname": "url",
-   "fieldtype": "Data",
+   "fieldtype": "Text",
    "label": "Url",
    "reqd": 1
   },
@@ -106,7 +106,7 @@
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2023-05-19 15:21:28.061925",
+ "modified": "2023-11-14 08:42:18.576229",
  "modified_by": "Administrator",
  "module": "Omnicommerce Cms",
  "name": "B2C Menu",
