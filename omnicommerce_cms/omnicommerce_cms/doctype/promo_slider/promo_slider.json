@@ -11,7 +11,11 @@
   "icon",
   "text",
   "url",
-  "status"
+  "status",
+  "column_break_mxyv",
+  "select_channels",
+  "b2b",
+  "b2c"
  ],
  "fields": [
   {
@@ -46,11 +50,33 @@
    "label": "status",
    "options": "Draft\nPublished",
    "reqd": 1
+  },
+  {
+   "fieldname": "column_break_mxyv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "select_channels",
+   "fieldtype": "Heading",
+   "label": "Select Channels",
+   "options": "Sales Channel"
+  },
+  {
+   "default": "1",
+   "fieldname": "b2b",
+   "fieldtype": "Check",
+   "label": "B2B"
+  },
+  {
+   "default": "1",
+   "fieldname": "b2c",
+   "fieldtype": "Check",
+   "label": "B2C"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-02 15:01:27.341190",
+ "modified": "2024-05-07 06:50:48.967368",
  "modified_by": "Administrator",
  "module": "Omnicommerce Cms",
  "name": "Promo Slider",

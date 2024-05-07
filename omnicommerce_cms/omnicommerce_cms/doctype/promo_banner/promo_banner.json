@@ -15,7 +15,11 @@
   "background_color_banner",
   "text_color",
   "background_transparency",
-  "status"
+  "status",
+  "column_break_bice",
+  "select_channels",
+  "b2b",
+  "b2c"
  ],
  "fields": [
   {
@@ -65,11 +69,32 @@
    "fieldname": "background_transparency",
    "fieldtype": "Percent",
    "label": "Background transparency (0 -1)"
+  },
+  {
+   "fieldname": "column_break_bice",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "select_channels",
+   "fieldtype": "Heading",
+   "label": "Select Channels"
+  },
+  {
+   "default": "1",
+   "fieldname": "b2b",
+   "fieldtype": "Check",
+   "label": "B2B"
+  },
+  {
+   "default": "1",
+   "fieldname": "b2c",
+   "fieldtype": "Check",
+   "label": "B2C"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-27 16:32:10.987353",
+ "modified": "2024-05-07 07:01:47.558289",
  "modified_by": "Administrator",
  "module": "Omnicommerce Cms",
  "name": "Promo Banner",

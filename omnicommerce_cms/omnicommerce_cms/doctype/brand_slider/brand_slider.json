@@ -11,7 +11,11 @@
   "url",
   "image_brand",
   "order",
-  "status"
+  "status",
+  "column_break_bewy",
+  "select_channels",
+  "b2b",
+  "b2c"
  ],
  "fields": [
   {
@@ -39,11 +43,32 @@
    "fieldtype": "Select",
    "label": "status",
    "options": "Draft\nPublished"
+  },
+  {
+   "fieldname": "column_break_bewy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "select_channels",
+   "fieldtype": "Heading",
+   "label": "Select Channels"
+  },
+  {
+   "default": "1",
+   "fieldname": "b2b",
+   "fieldtype": "Check",
+   "label": "B2B"
+  },
+  {
+   "default": "1",
+   "fieldname": "b2c",
+   "fieldtype": "Check",
+   "label": "B2C"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-28 12:01:10.857594",
+ "modified": "2024-05-07 06:58:18.790498",
  "modified_by": "Administrator",
  "module": "Omnicommerce Cms",
  "name": "Brand Slider",

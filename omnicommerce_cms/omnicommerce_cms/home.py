@@ -77,7 +77,9 @@ def map_slider_to_doctype(slider):
         'status': 'Published',
         'background_transparency': slider.get('background_transparency'),
         'slide_image': [{'url': f'{web_site_domain}{image_name}'}] if image_name else None,
-        'slide_image_mobile': [{'url': f'{web_site_domain}{image_name_mobile}'}] if image_name_mobile else None
+        'slide_image_mobile': [{'url': f'{web_site_domain}{image_name_mobile}'}] if image_name_mobile else None,
+        'b2b': slider.get('b2b', False),
+        'b2c': slider.get('b2c', False)
     }
     return doctype
 
@@ -94,6 +96,8 @@ def map_promo_banner_to_doctype(promo_banner):
         'background_color_banner': promo_banner.get('background_color_banner'),
         'text_color': promo_banner.get('text_color'),
         'background_transparency': promo_banner.get('background_transparency'),
+        'b2b': promo_banner.get('b2b', False),
+        'b2c': promo_banner.get('b2c', False)
     }
     return doctype
 
@@ -106,7 +110,9 @@ def map_home_category_to_doctype(home_category):
         'order': home_category['order'],
         'label': home_category['label'],
         'url': home_category['url'],
-        'image':  f'{web_site_domain}{image_name}'
+        'image':  f'{web_site_domain}{image_name}',
+        'b2b': home_category.get('b2b', False),
+        'b2c': home_category.get('b2c', False)
     }
     return doctype
 
@@ -119,7 +125,9 @@ def map_home_brand_to_doctype(home_brand):
         'order': home_brand['order'],
         'label': home_brand['label'],
         'url': home_brand['url'],
-        'image':  f'{web_site_domain}{image_name}'
+        'image':  f'{web_site_domain}{image_name}',
+        'b2b': home_brand.get('b2b', False),
+        'b2c': home_brand.get('b2c', False)
     }
     return doctype
 
@@ -132,7 +140,9 @@ def map_home_popular_department_to_doctype(popular_department):
         'order': popular_department['order'],
         'label': popular_department['label'],
         'url': popular_department['url'],
-        'image':  f'{web_site_domain}{image_name}'
+        'image':  f'{web_site_domain}{image_name}',
+        'b2b': popular_department.get('b2b', False),
+        'b2c': popular_department.get('b2c', False)
     }
     return doctype
 
@@ -171,7 +181,8 @@ def map_menu(item , menu_type):
         'parent_menu': item[f'parent_{menu_type}_menu'],
         'category_menu_image': f'{web_site_domain}{item["category_menu_image"]}' if item.get("category_menu_image") else None,
         'category_banner_image': f'{web_site_domain}{item["category_banner_image"]}' if item.get("category_banner_image") else None,
-        'category_banner_image_mobile': f'{web_site_domain}{item["category_banner_image_mobile"]}' if item.get("category_banner_image_mobile") else None
+        'category_banner_image_mobile': f'{web_site_domain}{item["category_banner_image_mobile"]}' if item.get("category_banner_image_mobile") else None,
+        'disable': item.get('disable', False),
 
     }
     return doctype
@@ -209,6 +220,8 @@ def map_promo_slider(item ):
     doctype = {
         'icon': item['icon'],
         'url': item['url'],
-        'text': item['text']
+        'text': item['text'],
+        'b2b': item.get('b2b', False),
+        'b2c': item.get('b2c', False)
     }
     return doctype

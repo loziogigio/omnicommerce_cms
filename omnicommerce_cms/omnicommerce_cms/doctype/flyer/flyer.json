@@ -10,7 +10,11 @@
   "label",
   "pdf",
   "order",
-  "flyer_image"
+  "flyer_image",
+  "column_break_aall",
+  "select_channels",
+  "b2b",
+  "b2c"
  ],
  "fields": [
   {
@@ -32,11 +36,32 @@
    "fieldname": "flyer_image",
    "fieldtype": "Attach Image",
    "label": "Flyer Image"
+  },
+  {
+   "fieldname": "column_break_aall",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "select_channels",
+   "fieldtype": "Heading",
+   "label": "Select Channels"
+  },
+  {
+   "default": "1",
+   "fieldname": "b2b",
+   "fieldtype": "Check",
+   "label": "B2B"
+  },
+  {
+   "default": "1",
+   "fieldname": "b2c",
+   "fieldtype": "Check",
+   "label": "B2C"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-05 13:51:03.447803",
+ "modified": "2024-05-07 06:58:05.839894",
  "modified_by": "Administrator",
  "module": "Omnicommerce Cms",
  "name": "Flyer",

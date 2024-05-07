@@ -18,7 +18,11 @@
   "background_color_banner",
   "text_color",
   "status",
-  "background_transparency"
+  "background_transparency",
+  "column_break_koqf",
+  "select_channels",
+  "b2b",
+  "b2c"
  ],
  "fields": [
   {
@@ -89,11 +93,32 @@
    "fieldtype": "Attach Image",
    "label": "Image Mobile",
    "reqd": 1
+  },
+  {
+   "fieldname": "column_break_koqf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "select_channels",
+   "fieldtype": "Heading",
+   "label": "Select Channels"
+  },
+  {
+   "default": "1",
+   "fieldname": "b2b",
+   "fieldtype": "Check",
+   "label": "B2B"
+  },
+  {
+   "default": "1",
+   "fieldname": "b2c",
+   "fieldtype": "Check",
+   "label": "B2C"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-14 16:56:09.941058",
+ "modified": "2024-05-07 06:54:58.348278",
  "modified_by": "Administrator",
  "module": "Omnicommerce Cms",
  "name": "Home Slider",

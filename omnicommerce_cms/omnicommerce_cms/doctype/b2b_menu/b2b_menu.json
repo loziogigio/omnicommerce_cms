@@ -8,6 +8,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "active",
   "label",
   "order",
   "title",
@@ -99,12 +100,18 @@
    "fieldname": "category_banner_image_mobile",
    "fieldtype": "Attach Image",
    "label": "Category banner image mobile"
+  },
+  {
+   "default": "0",
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Disable"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2023-11-14 08:43:17.800009",
+ "modified": "2024-05-07 16:01:43.709258",
  "modified_by": "Administrator",
  "module": "Omnicommerce Cms",
  "name": "B2B Menu",
