@@ -1,7 +1,9 @@
 import frappe
 import os
-
-
+import frappe
+from datetime import datetime, timedelta
+from urllib.parse import urlparse
+from mymb_ecommerce.repository.MytptparReposiotory import MytptparRepository
 
 def get_website_domain():
 
@@ -159,12 +161,14 @@ def get_b2c_menu(args=None):
     # Create a dictionary containing the data_menu data    
     return data_menu
 
+
+
 def map_menu(item , menu_type):
     web_site_domain = get_website_domain()
     item_url = item.get('url', '')
     item_name = item.get('name', '')
     item['url'] = item_url + '&category_detail=' + item_name if item_url else item_url
-    item['url'] += '&tab_name='  + item_name if item['url'] else ''
+    # item['url'] += '&tab_name='  + item_name if item['url'] else '' //hide the tab_category name issue
     doctype = {
         'name': item['name'],
         'creation': item['creation'],
@@ -191,16 +195,106 @@ def map_menu(item , menu_type):
 
 @frappe.whitelist(allow_guest=True, methods=['GET'])
 def get_b2b_menu(args=None):
-    # Define the order_by variable if needed, for example:
-    order_by = '`order` asc'
 
-    # Use frappe.get_list to fetch records from the database
-    b2b_menu_items = frappe.get_list('B2B Menu', order_by=order_by , fields=['*'])
-    data_menu = [map_menu(item , 'b2b') for item in b2b_menu_items]
-    
-    # Create a dictionary containing the data_menu data    
+    # Construct a unique cache key for B2B menu
+    cache_key = "b2b_menu_items"
+    # Try to get cached data
+    cached_b2b_menu = frappe.cache().get_value(cache_key)
+    if cached_b2b_menu:
+        return cached_b2b_menu
+
+    data_menu = update_b2b_menu_hook()
+    # Fetch records from the B2B Menu table
+
     return data_menu
 
+def update_b2b_menu_hook(doc=None, method=None):
+    
+    # Construct a unique cache key for B2B menu
+    cache_key = "b2b_menu_items"
+
+    order_by = '`order` asc'
+    b2b_menu_items = frappe.get_list('B2B Menu', order_by=order_by, fields=['*'])
+    data_menu = [map_b2b_menu(item, 'b2b') for item in b2b_menu_items]
+    b2b_dynamic_nodes = b2b_menu_items = frappe.get_list( 'B2B Menu',  filters={'is_dynamic_node': True},  order_by=order_by, fields=['*'])
+    for b2b_dynamic_node in b2b_dynamic_nodes:
+        ctipo_dtpar = b2b_dynamic_node.get('search_key','None')
+        my_tparty = MytptparRepository()
+        node_lists = my_tparty.get_id_subtype(to_dict=True  , ctipo_dtpar=ctipo_dtpar)
+        dynamic_nodes = [map_b2b_dynamic_node(item, 'b2b', parent_node=b2b_dynamic_node) for item in node_lists]
+        data_menu.extend(dynamic_nodes)  # Append new items instead of reassigning
+
+    frappe.cache().set_value(cache_key, data_menu)
+    return data_menu
+
+def is_absolute_url(url):
+    """Check if the URL is absolute."""
+    return bool(urlparse(url).netloc)
+
+
+def map_b2b_menu(item , menu_type):
+
+    web_site_domain = get_website_domain()
+    item_url = item.get('url', '')
+    item_name = item.get('name', '')
+
+    item['url']= item_url
+    # Only modify item['url'] if it's not an absolute URL
+    if item_url and not is_absolute_url(item_url):
+        if item_url:
+            item['url'] = f"{item_url}&category_detail={item_name}"
+        if item_name:
+            item['url'] += f"&tab_name={item_name}"
+
+    doctype = {
+        'name': item['name'],
+        'creation': item['creation'],
+        'docstatus': item['docstatus'],
+        'label': item['label'],
+        'order': item['order'],
+        'title': item['title'],
+        'url': item['url'],
+        'description': item['description'],
+        'lft': item['lft'],
+        'rgt': item['rgt'],
+        'is_group': item['is_group'],
+        'old_parent': item['old_parent'],
+        'parent_menu': item[f'parent_{menu_type}_menu'],
+        'category_menu_image': f'{web_site_domain}{item["category_menu_image"]}' if item.get("category_menu_image") else None,
+        'category_banner_image': f'{web_site_domain}{item["category_banner_image"]}' if item.get("category_banner_image") else None,
+        'category_banner_image_mobile': f'{web_site_domain}{item["category_banner_image_mobile"]}' if item.get("category_banner_image_mobile") else None,
+        'disable': item.get('disable', False),
+
+    }
+    return doctype
+    
+
+
+
+def map_b2b_dynamic_node(item , menu_type , parent_node):
+ 
+    id_type = item.get('ctipo_dtpar', '')
+    id_subtype =  item.get('ctipo_darti', '')
+    item_name = item.get('ttipo_darti', '') 
+    url = f'shop?id_type={id_type}&id_subtype={id_subtype}&tab_name={item_name}'
+
+    doctype = {
+        'name': id_subtype,
+        'label': item_name,
+        'order': 1,
+        'title': item_name,
+        'url': url,
+        'description': item_name,
+        'is_group': False,
+        'old_parent': parent_node['name'],
+        'parent_menu': parent_node['name'],
+        'category_menu_image': None,
+        'category_banner_image':  None,
+        'category_banner_image_mobile':  None,
+        'disable': False,
+
+    }
+    return doctype
 
 @frappe.whitelist(allow_guest=True, methods=['GET'])
 def get_promo_slider(args=None):

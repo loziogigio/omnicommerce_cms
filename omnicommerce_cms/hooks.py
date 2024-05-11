@@ -110,6 +110,12 @@ app_license = "MIT"
 #	}
 # }
 
+doc_events = {
+    "B2B Menu": {
+        "on_update": "omnicommerce_cms.omnicommerce_cms.home.update_b2b_menu_hook"    
+        }
+}
+
 # Scheduled Tasks
 # ---------------
 
@@ -130,6 +136,19 @@ app_license = "MIT"
 #		"omnicommerce_cms.tasks.monthly"
 #	],
 # }
+
+scheduler_events = {
+	# "all": ["mymb_ecommerce.mymb_b2c.inventory.update_inventory_on_shopify"],
+	"weekly": [],
+	"monthly": [],
+	"cron": {
+		# Every 3 hours
+		"30 5 * * *": [
+			"omnicommerce_cms.omnicommerce_cms.home.update_b2b_menu_hook",
+		# 	# "mymb_ecommerce.unicommerce.inventory.update_inventory_on_unicommerce",
+		],
+	},
+}
 
 # Testing
 # -------

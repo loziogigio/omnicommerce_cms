@@ -21,7 +21,12 @@
   "rgt",
   "is_group",
   "old_parent",
-  "parent_b2b_menu"
+  "parent_b2b_menu",
+  "column_break_geza",
+  "dynamic_import",
+  "is_dynamic_node",
+  "import_type",
+  "search_key"
  ],
  "fields": [
   {
@@ -43,6 +48,7 @@
    "label": "Title"
   },
   {
+   "default": "/",
    "fieldname": "url",
    "fieldtype": "Text",
    "label": "Url"
@@ -106,12 +112,40 @@
    "fieldname": "active",
    "fieldtype": "Check",
    "label": "Disable"
+  },
+  {
+   "fieldname": "column_break_geza",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "dynamic_import",
+   "fieldtype": "Heading",
+   "label": "Dynamic Import"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_dynamic_node",
+   "fieldtype": "Check",
+   "label": "Is dynamic node"
+  },
+  {
+   "depends_on": "is_dynamic_node",
+   "fieldname": "import_type",
+   "fieldtype": "Select",
+   "label": "Import type",
+   "options": "BMS tipologie"
+  },
+  {
+   "depends_on": "is_dynamic_node",
+   "fieldname": "search_key",
+   "fieldtype": "Data",
+   "label": "Search key"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2024-05-07 16:01:43.709258",
+ "modified": "2024-05-10 07:33:14.542372",
  "modified_by": "Administrator",
  "module": "Omnicommerce Cms",
  "name": "B2B Menu",
