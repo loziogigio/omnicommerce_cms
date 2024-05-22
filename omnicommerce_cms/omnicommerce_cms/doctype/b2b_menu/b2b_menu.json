@@ -8,7 +8,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "active",
+  "disable",
   "label",
   "order",
   "title",
@@ -108,12 +108,6 @@
    "label": "Category banner image mobile"
   },
   {
-   "default": "0",
-   "fieldname": "active",
-   "fieldtype": "Check",
-   "label": "Disable"
-  },
-  {
    "fieldname": "column_break_geza",
    "fieldtype": "Column Break"
   },
@@ -140,12 +134,18 @@
    "fieldname": "search_key",
    "fieldtype": "Data",
    "label": "Search key"
+  },
+  {
+   "default": "0",
+   "fieldname": "disable",
+   "fieldtype": "Check",
+   "label": "Disable"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2024-05-10 07:33:14.542372",
+ "modified": "2024-05-21 15:14:09.874382",
  "modified_by": "Administrator",
  "module": "Omnicommerce Cms",
  "name": "B2B Menu",
