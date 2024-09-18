@@ -76,12 +76,12 @@ def map_slider_to_doctype(slider):
         'url': slider.get('url'),
         'background_color_banner': slider.get('background_color_banner'),
         'text_color': slider.get('text_color'),
-        'status': 'Published',
+        'status': slider.get('status'),
         'background_transparency': slider.get('background_transparency'),
         'slide_image': [{'url': f'{web_site_domain}{image_name}'}] if image_name else None,
         'slide_image_mobile': [{'url': f'{web_site_domain}{image_name_mobile}'}] if image_name_mobile else None,
         'b2b': slider.get('b2b', False),
-        'b2c': slider.get('b2c', False)
+        'b2c': slider.get('b2c', False),
     }
     return doctype
 
@@ -99,7 +99,8 @@ def map_promo_banner_to_doctype(promo_banner):
         'text_color': promo_banner.get('text_color'),
         'background_transparency': promo_banner.get('background_transparency'),
         'b2b': promo_banner.get('b2b', False),
-        'b2c': promo_banner.get('b2c', False)
+        'b2c': promo_banner.get('b2c', False),
+        'status': promo_banner.get('status'),
     }
     return doctype
 
@@ -114,7 +115,8 @@ def map_home_category_to_doctype(home_category):
         'url': home_category['url'],
         'image':  f'{web_site_domain}{image_name}',
         'b2b': home_category.get('b2b', False),
-        'b2c': home_category.get('b2c', False)
+        'b2c': home_category.get('b2c', False),
+        'status': home_category.get('status'),
     }
     return doctype
 
@@ -129,7 +131,8 @@ def map_home_brand_to_doctype(home_brand):
         'url': home_brand['url'],
         'image':  f'{web_site_domain}{image_name}',
         'b2b': home_brand.get('b2b', False),
-        'b2c': home_brand.get('b2c', False)
+        'b2c': home_brand.get('b2c', False),
+        'status': home_brand.get('status'),
     }
     return doctype
 
