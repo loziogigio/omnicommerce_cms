@@ -112,8 +112,38 @@ app_license = "MIT"
 
 doc_events = {
     "B2B Menu": {
-        "on_update": "omnicommerce_cms.omnicommerce_cms.home.update_b2b_menu_hook"    
-        }
+        "after_update": "omnicommerce_cms.omnicommerce_cms.home.update_b2b_menu_hook",
+        "after_delete": "omnicommerce_cms.omnicommerce_cms.home.update_b2b_menu_hook"
+    },
+    "Home Slider": {
+        "after_update": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook",
+        "after_delete": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook"
+    },
+    "Promo Banner": {
+        "after_update": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook",
+        "after_delete": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook"
+    },
+    "Home Category": {
+        "after_update": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook",
+        "after_delete": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook"
+    },
+    "Home Brand": {
+        "after_update": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook",
+        "after_delete": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook"
+    },
+    "Popular Departments": {
+        "after_update": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook",
+        "after_delete": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook"
+    },
+    "Promo Slider": {
+        "after_update": "omnicommerce_cms.omnicommerce_cms.home.update_hook_promo_slider",
+        "after_delete": "omnicommerce_cms.omnicommerce_cms.home.update_hook_promo_slider"
+    },
+    "Web Page": {
+        "after_update": "omnicommerce_cms.omnicommerce_cms.web_page.update_hook_b2b_main_web_page",
+        "after_delete": "omnicommerce_cms.omnicommerce_cms.web_page.update_hook_b2b_main_web_page"
+    }
+    
 }
 
 # Scheduled Tasks
