@@ -149,23 +149,32 @@ doc_events = {
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-#	"all": [
-#		"omnicommerce_cms.tasks.all"
-#	],
-#	"daily": [
-#		"omnicommerce_cms.tasks.daily"
-#	],
-#	"hourly": [
-#		"omnicommerce_cms.tasks.hourly"
-#	],
-#	"weekly": [
-#		"omnicommerce_cms.tasks.weekly"
-#	],
-#	"monthly": [
-#		"omnicommerce_cms.tasks.monthly"
-#	],
-# }
+scheduler_events = {
+    "cron": {
+		# Every 30 mins
+        "*/30 * * * *": [
+			"omnicommerce_cms.omnicommerce_cms.home.update_b2b_menu_hook",
+            "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook",
+            "omnicommerce_cms.omnicommerce_cms.home.update_hook_promo_slider",
+			"omnicommerce_cms.omnicommerce_cms.web_page.update_hook_b2b_main_web_page",
+		],
+	}
+	# "all": [
+	# 	"omnicommerce_cms.tasks.all"
+	# ],
+	# "daily": [
+	# 	"omnicommerce_cms.tasks.daily"
+	# ],
+	# "hourly": [
+	# 	"omnicommerce_cms.tasks.hourly"
+	# ],
+	# "weekly": [
+	# 	"omnicommerce_cms.tasks.weekly"
+	# ],
+	# "monthly": [
+	# 	"omnicommerce_cms.tasks.monthly"
+	# ],
+}
 
 scheduler_events = {
 	# "all": ["mymb_ecommerce.mymb_b2c.inventory.update_inventory_on_shopify"],
