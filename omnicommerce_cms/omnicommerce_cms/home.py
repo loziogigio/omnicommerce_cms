@@ -4,6 +4,7 @@ import frappe
 from datetime import datetime, timedelta
 from urllib.parse import urlparse
 from mymb_ecommerce.repository.MytptparReposiotory import MytptparRepository
+from frappe.utils import now
 
 def get_website_domain():
 
@@ -34,6 +35,7 @@ def update_home_b2b_hook(doc=None, method=None):
     
     data = get_home()
     frappe.cache().set_value(cache_key, data)
+    frappe.log_error( title="update_home_b2b_hook", message=f"Time: {now()}")
     return data
 
 
@@ -239,6 +241,7 @@ def update_b2b_menu_hook(doc=None, method=None):
         data_menu.extend(dynamic_nodes)  # Append new items instead of reassigning
 
     frappe.cache().set_value(cache_key, data_menu)
+    frappe.log_error( title="update_b2b_menu_hook", message=f"Time: {now()}")
     return data_menu
 
 def is_absolute_url(url):
@@ -330,6 +333,8 @@ def update_hook_promo_slider(doc=None, method=None):
     data = [map_promo_slider(item) for item in promo_slider_items]
 
     frappe.cache().set_value(cache_key, data)
+    frappe.log_error( title="update_hook_promo_slider", message=f"Time: {now()}")
+
     return data
 
 

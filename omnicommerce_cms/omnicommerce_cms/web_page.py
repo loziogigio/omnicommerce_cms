@@ -30,7 +30,7 @@ def get_web_page_detail(route=None):
 
 
 import json
-from frappe.utils import cstr
+from frappe.utils import cstr, now
 
 @frappe.whitelist(allow_guest=True, methods=["GET"])
 def update_hook_b2b_main_web_page(doc=None, method=None):
@@ -46,7 +46,9 @@ def update_hook_b2b_main_web_page(doc=None, method=None):
                 data[key] = cstr(data[key])
 
         frappe.cache().set_value(cache_key, data)
+        frappe.log_error( title="update_hook_b2b_main_web_page:main", message=f"Time update: {now()}")
         return {"data": data}
     else:
         frappe.cache().delete_value(cache_key)
+        frappe.log_error( title="update_hook_b2b_main_web_page:main", message=f"Time delete: {now()}")
         return {"error": "No Web Page found with route 'main'"}
