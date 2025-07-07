@@ -112,35 +112,35 @@ app_license = "MIT"
 
 doc_events = {
     "B2B Menu": {
-        "after_update": "omnicommerce_cms.omnicommerce_cms.home.update_b2b_menu_hook",
+        "on_update": "omnicommerce_cms.omnicommerce_cms.home.update_b2b_menu_hook",
         "after_delete": "omnicommerce_cms.omnicommerce_cms.home.update_b2b_menu_hook"
     },
     "Home Slider": {
-        "after_update": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook",
+        "on_update": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook",
         "after_delete": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook"
     },
     "Promo Banner": {
-        "after_update": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook",
+        "on_update": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook",
         "after_delete": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook"
     },
     "Home Category": {
-        "after_update": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook",
+        "on_update": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook",
         "after_delete": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook"
     },
     "Home Brand": {
-        "after_update": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook",
+        "on_update": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook",
         "after_delete": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook"
     },
     "Popular Departments": {
-        "after_update": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook",
+        "on_update": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook",
         "after_delete": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook"
     },
     "Promo Slider": {
-        "after_update": "omnicommerce_cms.omnicommerce_cms.home.update_hook_promo_slider",
+        "on_update": "omnicommerce_cms.omnicommerce_cms.home.update_hook_promo_slider",
         "after_delete": "omnicommerce_cms.omnicommerce_cms.home.update_hook_promo_slider"
     },
     "Web Page": {
-        "after_update": "omnicommerce_cms.omnicommerce_cms.web_page.update_hook_b2b_main_web_page",
+        "on_update": "omnicommerce_cms.omnicommerce_cms.web_page.update_hook_b2b_main_web_page",
         "after_delete": "omnicommerce_cms.omnicommerce_cms.web_page.update_hook_b2b_main_web_page"
     }
     
@@ -148,46 +148,41 @@ doc_events = {
 
 # Scheduled Tasks
 # ---------------
-
-scheduler_events = {
-    "cron": {
-		# Every 30 mins
-        "*/30 * * * *": [
-			"omnicommerce_cms.omnicommerce_cms.home.update_b2b_menu_hook",
-            "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook",
-            "omnicommerce_cms.omnicommerce_cms.home.update_hook_promo_slider",
-			"omnicommerce_cms.omnicommerce_cms.web_page.update_hook_b2b_main_web_page",
-		],
-	}
-	# "all": [
-	# 	"omnicommerce_cms.tasks.all"
-	# ],
-	# "daily": [
-	# 	"omnicommerce_cms.tasks.daily"
-	# ],
-	# "hourly": [
-	# 	"omnicommerce_cms.tasks.hourly"
-	# ],
-	# "weekly": [
-	# 	"omnicommerce_cms.tasks.weekly"
-	# ],
-	# "monthly": [
-	# 	"omnicommerce_cms.tasks.monthly"
-	# ],
-}
-
 scheduler_events = {
 	# "all": ["mymb_ecommerce.mymb_b2c.inventory.update_inventory_on_shopify"],
+	"daily": [
+        # "mymb_ecommerce.mymb_b2c.jobs.job_process_available_again_email",
+	],
+	"daily_long": [
+		# "mymb_ecommerce.zenoti.doctype.zenoti_settings.zenoti_settings.sync_stocks"
+	],
+	"hourly": [
+		# "mymb_ecommerce.mymb_b2c.order.sync_old_orders",
+		# "mymb_ecommerce.amazon.doctype.amazon_sp_api_settings.amazon_sp_api_settings.schedule_get_order_details",
+	],
+	"hourly_long": [
+		# "mymb_ecommerce.zenoti.doctype.zenoti_settings.zenoti_settings.sync_invoices",
+		# "mymb_ecommerce.unicommerce.product.upload_new_items",
+		# "mymb_ecommerce.unicommerce.status_updater.update_sales_order_status",
+		# "mymb_ecommerce.unicommerce.status_updater.update_shipping_package_status",
+	],
 	"weekly": [],
 	"monthly": [],
 	"cron": {
-		# Every 3 hours
-		"30 5 * * *": [
+		# Every 15 mins
+		"*/15 * * * *": [
 			"omnicommerce_cms.omnicommerce_cms.home.update_b2b_menu_hook",
 		# 	# "mymb_ecommerce.unicommerce.inventory.update_inventory_on_unicommerce",
 		],
+		# Every 13 mins
+		"*/13 * * * *": [
+			"omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook",
+			"omnicommerce_cms.omnicommerce_cms.home.update_hook_promo_slider",
+            "omnicommerce_cms.omnicommerce_cms.web_page.update_hook_b2b_main_web_page",
+		],
 	},
 }
+
 
 # Testing
 # -------
