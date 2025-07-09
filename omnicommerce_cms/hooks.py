@@ -135,6 +135,10 @@ doc_events = {
         "on_update": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook",
         "after_delete": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook"
     },
+    "Flyer": {
+        "on_update": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook",
+        "after_delete": "omnicommerce_cms.omnicommerce_cms.home.update_home_b2b_hook"
+    },
     "Promo Slider": {
         "on_update": "omnicommerce_cms.omnicommerce_cms.home.update_hook_promo_slider",
         "after_delete": "omnicommerce_cms.omnicommerce_cms.home.update_hook_promo_slider"
